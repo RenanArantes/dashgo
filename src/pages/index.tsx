@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Input } from '../components/Form/Input'
+import Logo from '../components/Header/Logo'
 
 type SignInFormData  = {
   email: string;
@@ -34,10 +35,14 @@ export default function SignIn() {
       height="100vh"
       alignItems="center"
       justifyContent="center"
+      direction="column"
     >
+      <Flex  mb="45" alignItems="center" justifyContent="center">
+        <Logo />
+      </Flex>
       <Flex
         as="form"
-        w="100%"
+        w={["80%", "100%"]}
         maxWidth={360}
         bg="gray.800"
         p="8"
