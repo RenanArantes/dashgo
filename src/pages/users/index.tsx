@@ -25,6 +25,8 @@ export default function UserList() {
                     year: 'numeric'
                 })
             }
+        }, {
+            staleTime: 1000 * 5
         })
 
         return users
