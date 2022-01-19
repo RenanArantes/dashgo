@@ -7,13 +7,14 @@ import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import Header from "../../components/Header";
 import Pagination from "../../components/Pagination";
 import SideBar from "../../components/SideBar";
-import useUsers from "../../services/hooks/useUsers";
+import useUsers, { getUsers } from "../../services/hooks/useUsers";
 import { queryClient } from "../../services/queryClient";
 import { api } from "../../services/api";
+import { GetServerSideProps } from "next";
 
-export default function UserList() {
+export default function UserList({ users }) {
     const [page, setPage] = useState(1)
-    const { data, isLoading, isFetching ,error } = useUsers(page)
+    const { data, isLoading, isFetching ,error } = useUsers(page /*{initialData: users}*/)
 
     const isWideVersion = useBreakpointValue({
        base: false,
@@ -138,3 +139,14 @@ export default function UserList() {
         </Box>
     )
 }
+
+// initial data SSR
+// export const getServerSideProps: GetServerSideProps = async () => {
+//     const {users, totalCount} = await getUsers(1)
+
+//     return {
+//         props: {
+//             users,
+//         }
+//     }
+// }
