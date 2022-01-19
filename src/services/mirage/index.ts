@@ -53,6 +53,8 @@ export function makeServer() {
             }) //cria automaticamente a listagem sem precisar fazer controllers para isso
             this.post('/users') //cria automaticamente o create   "     "       "       "         "    "
 
+            this.get('/users/:id')
+
             this.namespace = '' //volta a aceitar as rotas /api padroes do next depois de telas criadas acima
             this.passthrough() //força toda chamada /api a virem para o mirage primeiro, se nao existirem vao pro padrao do NextJS
         }
