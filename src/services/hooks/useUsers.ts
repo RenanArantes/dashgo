@@ -38,7 +38,7 @@ export async function getUsers (page: number): Promise<GetUserResponse> {
 }
 
 export default function useUsers(page: number) {
-    return useQuery(['chave-do-chache-users', page], () => getUsers(page) , {
+    return useQuery(['users', page], () => getUsers(page) , {
         staleTime: 1000 * 60 * 10
     })
 }
